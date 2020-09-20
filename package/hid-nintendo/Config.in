@@ -1,0 +1,4 @@
+config BR2_PACKAGE_DKMS_HID_NINTENDO
+	bool "hid-nintendo"
+	help
+	  A Nintendo HID kernel module.  
