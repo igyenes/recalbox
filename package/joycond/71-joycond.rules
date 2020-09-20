@@ -1,0 +1,13 @@
+ACTION!="bind", GOTO="joycond_end"
+SUBSYSTEM!="hid", GOTO="joycond_end"
+DRIVER!="hid-generic", GOTO="joycond_end"
+
+KERNELS=="0005:057E:2006.*", \
+RUN+="/bin/bash -c 'echo $kernel > /sys/bus/hid/drivers/hid-generic/unbind'", \
+RUN+="/bin/bash -c 'echo $kernel > /sys/bus/hid/drivers/nintendo/bind'"
+
+KERNELS=="0005:057E:2007.*", \
+RUN+="/bin/bash -c 'echo $kernel > /sys/bus/hid/drivers/hid-generic/unbind'", \
+RUN+="/bin/bash -c 'echo $kernel > /sys/bus/hid/drivers/nintendo/bind'"
+
+LABEL="joycond_end"

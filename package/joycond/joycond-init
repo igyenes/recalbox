@@ -3,4 +3,5 @@
 [ "$1" != "start" ] && exit 0
 
 recallog "starting joycond"
+modprobe hid-nintendo
 /usr/bin/joycond >/dev/null 2>&1 &
