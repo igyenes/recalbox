@@ -1,0 +1,20 @@
+--- ./Makefile.orig	2020-10-20 20:46:08.363013822 +0200
++++ ./Makefile	2020-10-20 20:46:59.879331959 +0200
+@@ -2370,14 +2370,13 @@
+ all: modules
+ 
+ modules:
+-	$(MAKE) ARCH=$(ARCH) CROSS_COMPILE=$(CROSS_COMPILE) -C $(KSRC) M=$(shell pwd)  modules
++	$(MAKE) ARCH=$(ARCH) CROSS_COMPILE=$(CROSS_COMPILE) -C $(KSRC) modules
+ 
+ strip:
+ 	$(CROSS_COMPILE)strip $(MODULE_NAME).ko --strip-unneeded
+ 
+-install:
+-	install -p -m 644 $(MODULE_NAME).ko  $(MODDESTDIR)
+-	/sbin/depmod -a ${KVER}
++modules_install:
++	$(MAKE) ARCH="$(ARCH)" CROSS_COMPILE="$(CROSS_COMPILE)" INSTALL_MOD_PATH="$(INSTALL_MOD_PATH)" INSTALL_MOD_DIR="rtl88x2bu" -C $(KSRC) SUBDIRS="$(MODULE_DIR)"  modules_install
+ 
+ uninstall:
+ 	rm -f $(MODDESTDIR)/$(MODULE_NAME).ko
