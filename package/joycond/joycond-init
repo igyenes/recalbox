@@ -1,7 +1,32 @@
 #!/bin/bash
+#
+# Start joycond
+#
+# userspace daemon to combine joy-cons from the hid-nintendo kernel driver
+#
 
-[ "$1" != "start" ] && exit 0
+start() {
+  echo -n "Starting joycond: "
+  start-stop-daemon -b -S -q -m -p /var/run/joycond.pid --exec /usr/bin/joycond
+  echo "OK"
+}
 
-recallog "starting joycond"
-modprobe hid-nintendo
-/usr/bin/joycond >/dev/null 2>&1 &
+stop() {
+  echo -n "Stopping joycond: "
+  start-stop-daemon -K -q -p /var/run/lirc.pid
+  echo "OK"
+}
+
+case "$1" in
+  start) start ;;
+  stop) stop ;;
+  restart|reload)
+    stop
+    start
+  ;;
+  *)
+    echo "Usage: $0 {start|stop|restart}"
+    exit 1
+esac
+
+exit $?
