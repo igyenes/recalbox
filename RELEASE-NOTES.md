@@ -3,6 +3,7 @@
 ## Next
 
 ### News
+- Add WebManager v3
 - New multi-source rom management:
   - Pre-installed games are no longer copied into SHARE partition (except ports)
   - New option in game menu to show/hide pre-installed games
