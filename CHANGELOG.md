@@ -27,6 +27,7 @@ All notable changes to this project will be documented in this file.
 - Compile MelonDS & DesMume on arm/aarch64 boards
 - Move to private theme repository for official Recalbox builds
 - Add libretro-mupen64plus-next for odroidxu4 (#1465)
+- Fix detection of 4k screen (#1384)
 
 ## [7.1.1-Reloaded]
 - Fix abnormally long boots
