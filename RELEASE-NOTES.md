@@ -2,6 +2,8 @@
 
 ## Next
 
+- Add IPFS on Pi3, Pi4, XU4 and PC (disabled by default)
+
 ### News
 - New multi-source rom management:
   - Pre-installed games are no longer copied into SHARE partition (except ports)
